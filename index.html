@@ -67,7 +67,83 @@
                 
                     <div id="ucsb-modal" class="hidden bg-white rounded-3xl shadow-2xl max-w-2xl w-full p-10 transform scale-95 transition-transform duration-300" onclick="event.stopPropagation()">
                         <div class="flex justify-between items-start mb-6">
-                            <h5 class="text-2xl font-black text-blue-800">Relevant Coursework (UCSB)
+                            <h5 class="text-2xl font-black text-blue-800">Relevant Coursework (UCSB)</h5>
+                            <button onclick="closeModal()" class="text-slate-400 hover:text-slate-600 text-2xl font-bold">&times;</button>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8 text-slate-600 font-semibold border-t pt-6">
+                            <div class="flex items-center"><span class="w-2 h-2 bg-blue-400 rounded-full mr-3"></span> Stats & Data Science</div>
+                            <div class="flex items-center"><span class="w-2 h-2 bg-blue-400 rounded-full mr-3"></span> Advanced Psych Research</div>
+                            <div class="flex items-center"><span class="w-2 h-2 bg-blue-400 rounded-full mr-3"></span> Regression Analysis</div>
+                            <div class="flex items-center"><span class="w-2 h-2 bg-blue-400 rounded-full mr-3"></span> Experimental Design</div>
+                            <div class="flex items-center"><span class="w-2 h-2 bg-blue-400 rounded-full mr-3"></span> Linear Algebra</div>
+                            <div class="flex items-center"><span class="w-2 h-2 bg-blue-400 rounded-full mr-3"></span> Cognitive Psychology</div>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-br from-blue-600 to-indigo-700 p-10 rounded-3xl shadow-xl text-white mt-4 md:mt-12">
+                        <h4 class="text-xs font-bold uppercase tracking-[0.2em] opacity-80 mb-6 border-b border-white/20 pb-2">Core Stack</h4>
+                        <ul class="space-y-4 text-lg font-semibold">
+                            <li class="flex items-center"><span class="w-2 h-2 bg-blue-300 rounded-full mr-4 shadow-[0_0_8px_rgba(147,197,253,0.8)]"></span> Python & R</li>
+                            <li class="flex items-center"><span class="w-2 h-2 bg-blue-300 rounded-full mr-4 shadow-[0_0_8px_rgba(147,197,253,0.8)]"></span> SQL</li>
+                            <li class="flex items-center"><span class="w-2 h-2 bg-blue-300 rounded-full mr-4 shadow-[0_0_8px_rgba(147,197,253,0.8)]"></span> Tableau</li>
+                            <li class="flex items-center"><span class="w-2 h-2 bg-blue-300 rounded-full mr-4 shadow-[0_0_8px_rgba(147,197,253,0.8)]"></span> API Integration</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <script>
+                    function toggleCoursework(id) {
+                        const target = document.getElementById(id);
+                        const allBoxes = ['uw-courses', 'ucsb-courses'];
+                        
+                        // Hide others and toggle target
+                        allBoxes.forEach(boxId => {
+                            const box = document.getElementById(boxId);
+                            if (boxId === id) {
+                                box.classList.toggle('hidden');
+                            } else {
+                                box.classList.add('hidden');
+                            }
+                        });
+                    }
+                    function openModal(modalId) {
+                        const backdrop = document.getElementById('modal-backdrop');
+                        const modal = document.getElementById(modalId);
+                        
+                        // Reset any other open modals
+                        document.getElementById('uw-modal').classList.add('hidden');
+                        document.getElementById('ucsb-modal').classList.add('hidden');
+
+                        // Show backdrop and specific modal
+                        backdrop.classList.remove('hidden');
+                        modal.classList.remove('hidden');
+                        
+                        // Small delay to allow CSS transitions to pop
+                        setTimeout(() => {
+                            modal.classList.remove('scale-95');
+                            modal.classList.add('scale-100');
+                        }, 10);
+                        
+                        // Prevent body scrolling while modal is open
+                        document.body.style.overflow = 'hidden';
+                    }
+
+                    function closeModal() {
+                        const backdrop = document.getElementById('modal-backdrop');
+                        backdrop.classList.add('hidden');
+                        document.body.style.overflow = 'auto';
+                    }
+                </script>
+                
+                
+                <style>
+                    .animate-fade-in {
+                        animation: fadeIn 0.3s ease-in-out;
+                    }
+                    @keyframes fadeIn {
+                        from { opacity: 0; transform: translateY(-10px); }
+                        to { opacity: 1; transform: translateY(0); }
+                    }
+                </style>
 
                 </div>  
 
@@ -204,3 +280,4 @@
                     </div>
                 </div>
             </section>
+
