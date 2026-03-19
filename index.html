@@ -32,11 +32,71 @@
                     social impact and better decision-making.
                 </p>
                 
-                <div class="mt-8 flex flex-wrap gap-3">
-                    <span class="px-4 py-2 bg-purple-50 text-purple-700 text-xs font-bold rounded-md border border-purple-100">MS Data Science @ UW</span>
-                    <span class="px-4 py-2 bg-blue-50 text-blue-700 text-xs font-bold rounded-md border border-blue-100">BS Stats & Psych @ UCSB</span>
+                <div class="mt-8">
+                    <div class="flex flex-wrap gap-4">
+                        <button onclick="toggleCoursework('uw-courses')" 
+                                class="px-6 py-3 bg-purple-50 text-purple-700 text-sm font-bold rounded-lg border border-purple-100 shadow-sm hover:shadow-md hover:bg-purple-100 transition-all cursor-pointer">
+                            MS Data Science @ UW
+                        </button>
+                
+                        <button onclick="toggleCoursework('ucsb-courses')" 
+                                class="px-6 py-3 bg-blue-50 text-blue-700 text-sm font-bold rounded-lg border border-blue-100 shadow-sm hover:shadow-md hover:bg-blue-100 transition-all cursor-pointer">
+                            BS Stats & Psych @ UCSB
+                        </button>
+                    </div>
+                
+                    <div id="uw-courses" class="hidden mt-4 p-6 bg-white border border-purple-100 rounded-xl shadow-inner animate-fade-in">
+                        <h5 class="font-bold text-purple-800 mb-3 text-sm uppercase tracking-wider">Relevant Coursework (UW)</h5>
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-2 text-sm text-slate-600 font-medium">
+                            <span>• Data Visualizations for Data Science</span>
+                            <span>• Probability and Statistics</span>
+                            <span>• Software Design for Data Science</span>
+                            <span>• Data Management for Data Science</span>
+                            <span>• Technical Communication</span>
+                            <span>• Statistical Machine Learning for Data Science</span>
+                        </div>
+                    </div>
+                
+                    <div id="ucsb-courses" class="hidden mt-4 p-6 bg-white border border-blue-100 rounded-xl shadow-inner animate-fade-in">
+                        <h5 class="font-bold text-blue-800 mb-3 text-sm uppercase tracking-wider">Relevant Coursework (UCSB)</h5>
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-2 text-sm text-slate-600 font-medium">
+                            <span>• Big Data Analytics</span>
+                            <span>• Data Science Concepts and Analysis</span>
+                            <span>• Machine Learning</span>
+                            <span>• Time Series /span>
+                            <span>• Advanced Statistical Models</span>
+                            <span>• Principles of Data Science</span>
+                            <span>• Math Finance</span>
+                        </div>
+                    </div>
                 </div>
-            </div>
+                
+                <script>
+                    function toggleCoursework(id) {
+                        const target = document.getElementById(id);
+                        const allBoxes = ['uw-courses', 'ucsb-courses'];
+                        
+                        // Hide others and toggle target
+                        allBoxes.forEach(boxId => {
+                            const box = document.getElementById(boxId);
+                            if (boxId === id) {
+                                box.classList.toggle('hidden');
+                            } else {
+                                box.classList.add('hidden');
+                            }
+                        });
+                    }
+                </script>
+                
+                <style>
+                    .animate-fade-in {
+                        animation: fadeIn 0.3s ease-in-out;
+                    }
+                    @keyframes fadeIn {
+                        from { opacity: 0; transform: translateY(-10px); }
+                        to { opacity: 1; transform: translateY(0); }
+                    }
+                </style>
 
             <div class="bg-gradient-to-br from-blue-600 to-indigo-700 p-8 rounded-2xl shadow-xl text-white">
                 <h4 class="text-sm font-bold uppercase tracking-widest opacity-75 mb-4">Core Stack</h4>
