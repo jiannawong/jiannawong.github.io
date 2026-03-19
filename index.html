@@ -34,75 +34,40 @@
                 
                 <div class="mt-10">
                     <div class="flex flex-wrap gap-6">
-                        <button onclick="toggleCoursework('uw-courses')" 
-                                class="group text-left px-8 py-5 bg-purple-50 text-purple-700 rounded-2xl border-2 border-purple-100 shadow-sm hover:shadow-lg hover:bg-purple-100 transition-all cursor-pointer flex-1 min-w-[280px]">
-                            <span class="block text-xl font-black mb-1">MS Data Science @ UW</span>
-                            <span class="text-xs font-bold uppercase tracking-widest opacity-60 group-hover:opacity-100 transition-opacity">
-                                🖱️ Click to see relevant courses
-                            </span>
+                        <button onclick="openModal('uw-modal')" 
+                                class="group text-left px-8 py-6 bg-purple-50 text-purple-700 rounded-2xl border-2 border-purple-100 shadow-sm hover:shadow-xl hover:bg-purple-100 transition-all cursor-pointer flex-1 min-w-[280px]">
+                            <span class="block text-xl font-black mb-1 leading-tight">MS Data Science @ UW</span>
+                            <span class="text-xs font-bold uppercase tracking-widest opacity-60 group-hover:opacity-100">🖱️ Click to see relevant courses</span>
                         </button>
                 
-                        <button onclick="toggleCoursework('ucsb-courses')" 
-                                class="group text-left px-8 py-5 bg-blue-50 text-blue-700 rounded-2xl border-2 border-blue-100 shadow-sm hover:shadow-lg hover:bg-blue-100 transition-all cursor-pointer flex-1 min-w-[280px]">
-                            <span class="block text-xl font-black mb-1">BS Stats & Psych @ UCSB</span>
-                            <span class="text-xs font-bold uppercase tracking-widest opacity-60 group-hover:opacity-100 transition-opacity">
-                                🖱️ Click to see relevant courses
-                            </span>
+                        <button onclick="openModal('ucsb-modal')" 
+                                class="group text-left px-8 py-6 bg-blue-50 text-blue-700 rounded-2xl border-2 border-blue-100 shadow-sm hover:shadow-xl hover:bg-blue-100 transition-all cursor-pointer flex-1 min-w-[280px]">
+                            <span class="block text-xl font-black mb-1 leading-tight">BS Stats & Psych @ UCSB</span>
+                            <span class="text-xs font-bold uppercase tracking-widest opacity-60 group-hover:opacity-100">🖱️ Click to see relevant courses</span>
                         </button>
-                    </div>
-                
-                    <div id="uw-courses" class="hidden mt-4 p-6 bg-white border border-purple-100 rounded-xl shadow-inner animate-fade-in">
-                        <h5 class="font-bold text-purple-800 mb-3 text-sm uppercase tracking-wider">Relevant Coursework (UW)</h5>
-                        <div class="grid grid-cols-2 md:grid-cols-3 gap-2 text-sm text-slate-600 font-medium">
-                            <span>• Data Visualizations for Data Science</span>
-                            <span>• Probability and Statistics</span>
-                            <span>• Software Design for Data Science</span>
-                            <span>• Data Management for Data Science</span>
-                            <span>• Technical Communication</span>
-                            <span>• Statistical Machine Learning for Data Science</span>
-                        </div>
-                    </div>
-                
-                    <div id="ucsb-courses" class="hidden mt-4 p-6 bg-white border border-blue-100 rounded-xl shadow-inner animate-fade-in">
-                        <h5 class="font-bold text-blue-800 mb-3 text-sm uppercase tracking-wider">Relevant Coursework (UCSB)</h5>
-                        <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-sm text-slate-600 font-medium">
-                            <span>• Big Data Analytics</span>
-                            <span>• Data Science Concepts and Analysis</span>
-                            <span>• Machine Learning</span>
-                            <span>• Time Series</span>
-                            <span>• Advanced Statistical Models</span>
-                            <span>• Principles of Data Science</span>
-                            <span>• Math Finance</span>
-                        </div>
                     </div>
                 </div>
                 
-                <script>
-                    function toggleCoursework(id) {
-                        const target = document.getElementById(id);
-                        const allBoxes = ['uw-courses', 'ucsb-courses'];
-                        
-                        // Hide others and toggle target
-                        allBoxes.forEach(boxId => {
-                            const box = document.getElementById(boxId);
-                            if (boxId === id) {
-                                box.classList.toggle('hidden');
-                            } else {
-                                box.classList.add('hidden');
-                            }
-                        });
-                    }
-                </script>
+                <div id="modal-backdrop" class="hidden fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-[100] transition-opacity duration-300 flex items-center justify-center p-6" onclick="closeModal()">
+                    
+                    <div id="uw-modal" class="hidden bg-white rounded-3xl shadow-2xl max-w-2xl w-full p-10 transform scale-95 transition-transform duration-300" onclick="event.stopPropagation()">
+                        <div class="flex justify-between items-start mb-6">
+                            <h5 class="text-2xl font-black text-purple-800">Relevant Coursework (UW)</h5>
+                            <button onclick="closeModal()" class="text-slate-400 hover:text-slate-600 text-2xl font-bold">&times;</button>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8 text-slate-600 font-semibold border-t pt-6">
+                            <div class="flex items-center"><span class="w-2 h-2 bg-purple-400 rounded-full mr-3"></span> Data Visualizations</div>
+                            <div class="flex items-center"><span class="w-2 h-2 bg-purple-400 rounded-full mr-3"></span> Probability & Statistics</div>
+                            <div class="flex items-center"><span class="w-2 h-2 bg-purple-400 rounded-full mr-3"></span> Data Management</div>
+                            <div class="flex items-center"><span class="w-2 h-2 bg-purple-400 rounded-full mr-3"></span> Technical Communication</div>
+                            <div class="flex items-center"><span class="w-2 h-2 bg-purple-400 rounded-full mr-3"></span> Software Design</div>
+                            <div class="flex items-center"><span class="w-2 h-2 bg-purple-400 rounded-full mr-3"></span> Machine Learning</div>
+                        </div>
+                    </div>
                 
-                <style>
-                    .animate-fade-in {
-                        animation: fadeIn 0.3s ease-in-out;
-                    }
-                    @keyframes fadeIn {
-                        from { opacity: 0; transform: translateY(-10px); }
-                        to { opacity: 1; transform: translateY(0); }
-                    }
-                </style>
+                    <div id="ucsb-modal" class="hidden bg-white rounded-3xl shadow-2xl max-w-2xl w-full p-10 transform scale-95 transition-transform duration-300" onclick="event.stopPropagation()">
+                        <div class="flex justify-between items-start mb-6">
+                            <h5 class="text-2xl font-black text-blue-800">Relevant Coursework (UCSB)
 
                 </div>  
 
@@ -194,11 +159,7 @@
             <h3 class="text-2xl font-bold mb-10 border-b pb-2 text-slate-800 flex items-center">
                 <span class="mr-3">🛠</span> Technical Toolkit
             </h3>
-        
-            <section id="skills" class="max-w-4xl mx-auto py-16 px-6">
-                <h3 class="text-2xl font-bold mb-10 border-b pb-2 text-slate-800 flex items-center">
-                    <span class="mr-3">🛠</span> Technical Toolkit
-                </h3>
+
             
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
                     <div class="p-6 bg-white rounded-2xl border border-slate-100 shadow-sm hover:border-blue-200 transition">
@@ -207,7 +168,7 @@
                         <ul class="text-sm text-slate-600 space-y-2 font-medium">
                             <li><strong>Python:</strong> Pandas, NumPy, Scikit-learn, PyTorch, OpenCV</li>
                             <li><strong>R & SQL:</strong> Tidyverse, ggplot2, SparkSQL</li>
-                            <li><strong>Other:</strong> MATLAB, SAS, MATLAB</li>
+                            <li><strong>Other:</strong> MATLAB, SAS</li>
                         </ul>
                     </div>
             
@@ -234,10 +195,11 @@
                         <div class="w-10 h-10 bg-orange-50 rounded-lg flex items-center justify-center mb-4 text-xl">🧠</div>
                         <h4 class="font-bold text-slate-900 mb-3">Strategic & Soft Skills</h4>
                         <ul class="text-sm text-slate-600 space-y-2 font-medium">
-                            <li><strong>Data Storytelling:</strong> Translating complex models for non-technical stakeholders.</li>
-                            <li><strong>Cross-Functional Collaboration:</strong> Working across engineering and product teams.</li>
-                            <li><strong>Analytical Thinking:</strong> Bridging psychological theory with statistical rigor.</li>
-                            <li><strong>Project Management:</strong> End-to-end ownership of the data lifecycle.</li>
+                            <li><strong>Data Storytelling</strong></li>
+                            <li><strong>Cross-Functional Collaboration</strong></li>
+                            <li><strong>Analytical Thinking</strong></li>
+                            <li><strong>Project Management</strong></li>
+                            <li><strong>Problem Solving</strong></li>
                         </ul>
                     </div>
                 </div>
