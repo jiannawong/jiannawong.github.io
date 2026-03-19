@@ -7,34 +7,62 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-50 text-gray-900 font-sans">
-    <nav class="p-6 bg-white shadow-sm flex justify-between items-center">
+    <nav class="p-6 bg-white shadow-sm flex justify-between items-center sticky top-0 z-50">
         <h1 class="text-xl font-bold tracking-tight">Jianna Wong</h1>
-        <div class="space-x-6">
+        <div class="space-x-6 text-sm font-medium">
             <a href="#projects" class="hover:text-blue-600">Projects</a>
-            <a href="https://github.com/ventikaa" class="hover:text-blue-600 text-sm font-medium">GitHub</a>
+            <a href="#viz" class="hover:text-blue-600">Dashboards</a>
+            <a href="https://github.com/ventikaa" class="hover:text-blue-600 border-l pl-6">GitHub</a>
         </div>
     </nav>
 
     <header class="max-w-4xl mx-auto py-20 px-6">
-        <h2 class="text-5xl font-extrabold mb-4 text-gray-900">Data Scientist & Analyst</h2>
+        <h2 class="text-5xl font-extrabold mb-4 text-gray-900 leading-tight">Data Scientist & Analyst</h2>
         <p class="text-xl text-gray-600 leading-relaxed max-w-2xl">
-            Passionate about bridging the gap between complex data systems and actionable social interventions. Specializing in Python, R, and Tableau.
+            Transforming complex data into actionable social interventions. Specializing in Python, R, and interactive storytelling with Tableau.
         </p>
     </header>
 
-    <main class="max-w-4xl mx-auto px-6 py-12" id="projects">
-        <h3 class="text-2xl font-bold mb-8 border-b pb-2">Selected Work</h3>
-        
-        <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 mb-8 transition hover:shadow-md">
-            <h4 class="text-xl font-bold mb-2">Cooking Helper!</h4>
-            <p class="text-gray-600 mb-4">An end-to-end tool using the Kroger API to help individuals optimize grocery shopping based on selected recipes.</p>
-            <div class="flex gap-2">
-                <span class="px-3 py-1 bg-blue-100 text-blue-700 text-xs font-semibold rounded-full">Python</span>
-                <span class="px-3 py-1 bg-green-100 text-green-700 text-xs font-semibold rounded-full">API Integration</span>
-                <span class="px-3 py-1 bg-purple-100 text-purple-700 text-xs font-semibold rounded-full">CI/CD</span>
+    <main class="max-w-4xl mx-auto px-6 pb-24">
+        <section id="projects" class="mb-20">
+            <h3 class="text-2xl font-bold mb-8 border-b pb-2">Technical Projects</h3>
+            <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 transition hover:shadow-md">
+                <div class="flex justify-between items-start mb-4">
+                    <h4 class="text-xl font-bold">Cooking Helper!</h4>
+                    <span class="text-xs font-mono text-gray-400">Python • API • CI/CD</span>
+                </div>
+                <p class="text-gray-600 mb-6 leading-relaxed">
+                    Developed an end-to-end grocery planning tool using the <strong>Kroger API</strong>. The system automates grocery list generation with real-time pricing to reduce barriers to home cooking.
+                </p>
+                <a href="https://github.com/ventikaa/data515-proj" class="text-blue-600 font-semibold hover:underline">View Source Code &rarr;</a>
             </div>
-            <a href="https://github.com/ventikaa/data515-proj" class="mt-4 inline-block text-blue-600 font-medium hover:underline">View Project &rarr;</a>
-        </div>
-    </main>
-</body>
-</html>
+        </section>
+
+        <section id="viz">
+            <h3 class="text-2xl font-bold mb-8 border-b pb-2">Interactive Dashboards</h3>
+            <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
+                <h4 class="text-lg font-bold mb-4 px-4 pt-2">Hospital Satisfaction Ratings</h4>
+                
+                <div class="relative w-full" style="height: 600px;">
+                    <div class='tableauPlaceholder' id='viz1710720000000' style='position: relative'>
+                        <noscript>
+                            <a href='#'><img alt='Hospital Satisfaction' src='https://public.tableau.com/static/images/Ho/HospitalRatingsDashboard/HospitalSatisfaction/1_rss.png' style='border: none' /></a>
+                        </noscript>
+                        <object class='tableauViz'  style='display:none;'>
+                            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
+                            <param name='embed_code_version' value='3' /> 
+                            <param name='site_root' value='' />
+                            <param name='name' value='HospitalRatingsDashboard/HospitalSatisfaction' />
+                            <param name='tabs' value='no' />
+                            <param name='toolbar' value='yes' />
+                            <param name='animate_transition' value='yes' />
+                            <param name='display_static_image' value='yes' />
+                            <param name='display_spinner' value='yes' />
+                            <param name='display_overlay' value='yes' />
+                            <param name='display_count' value='yes' />
+                            <param name='language' value='en-US' />
+                        </object>
+                    </div>                
+                    <script type='text/javascript'>                    
+                        var divElement = document.getElementById('viz1710720000000');                    
+                        var vizElement = divElement.getElementsByTagName('object')
